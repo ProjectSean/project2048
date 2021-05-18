@@ -48,18 +48,17 @@ class Game {
                         break;
                 }
             }, that.tool.waitingTime))
-            console.log(this.main_box);
-            document.addEventListener("touchstart", function (event) {
+            that.main_box.addEventListener("touchstart", function (event) {
                 event.preventDefault();
                 that.startX = event.touches[0].clientX;
                 that.startY = event.touches[0].clientY;
             })
-            document.addEventListener("touchmove", function (event) {
+            that.main_box.addEventListener("touchmove", function (event) {
                 event.preventDefault();
                 that.endX = event.changedTouches[0].clientX;
                 that.endY = event.changedTouches[0].clientY;
             })
-            document.addEventListener("touchend", function (event) {
+            that.main_box.addEventListener("touchend", function (event) {
                 var x = that.endX - that.startX;
                 var y = that.endY - that.startY;
                 if (Math.abs(x) > Math.abs(y) && that.endX > that.startX && Math.abs(x) > that.distance) {
