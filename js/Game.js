@@ -8,6 +8,7 @@ class Game {
         this.tool = new Tool(400);
         this.gamestatus = 1;
         this.score = document.querySelectorAll('.score');
+        this.main_box = document.querySelector('.main_box');
         this.box = document.querySelector('main');
         this.tips = document.querySelector('.tips')
         this.start = document.querySelector('.start')
@@ -47,7 +48,9 @@ class Game {
                         break;
                 }
             }, that.tool.waitingTime))
+            console.log(this.main_box);
             document.addEventListener("touchstart", function (event) {
+                event.preventDefault();
                 that.startX = event.touches[0].clientX;
                 that.startY = event.touches[0].clientY;
             })
@@ -60,19 +63,19 @@ class Game {
                 var x = that.endX - that.startX;
                 var y = that.endY - that.startY;
                 if (Math.abs(x) > Math.abs(y) && that.endX > that.startX && Math.abs(x) > that.distance) {
-                    event.stopPropagation()
+                    event.preventDefault();
                     that.moveRight()
                 }
                 if (Math.abs(x) > Math.abs(y) && that.endX < that.startX && Math.abs(x) > that.distance) {
-                    event.stopPropagation()
+                    event.preventDefault();
                     that.moveLeft()
                 }
                 if (Math.abs(x) < Math.abs(y) && that.endY < that.startY && Math.abs(y) > that.distance) {
-                    event.stopPropagation()
+                    event.preventDefault();
                     that.moveUp()
                 }
                 if (Math.abs(x) < Math.abs(y) && that.endY > that.startY && Math.abs(y) > that.distance) {
-                    event.stopPropagation()
+                    event.preventDefault();
                     that.moveDown()
                 }
             })
