@@ -1,0 +1,124 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    user-select: none;
+ }
+
+.main_box {
+    margin: 200px auto;
+    width: 40em;
+}
+
+.main_box .top {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 0.3em;
+    font-size: 3em;
+    font-weight: 700;
+}
+
+.score {
+    width: 3em;
+    height: 1.5em;
+    font-weight: 700;
+    border: 1px solid transparent;
+    color: red;
+}
+
+/* --------------- */
+.main_box main {
+    position: absolute;
+    width: 40em;
+    height: 40em;
+    background-color: pink;
+    border-radius: 0.5em;
+    border: 0.6em solid pink;
+}
+
+.main_box main .cell {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 0.5rem;
+    width: calc(25% - 1rem);
+    height: calc(25% - 1rem);
+    background-color: lightyellow;
+    color: #776e65;
+    font-size: 3em;
+    border-radius: 0.8rem;
+    text-align: center;
+    line-height: 8.8rem;
+}
+footer {
+    position: absolute;
+    top: 60em;
+}
+
+footer button {
+    margin: 1em;
+}
+
+button {
+    width: 8em;
+    height: 3em;
+    background-color: aquamarine;
+    color: #fff;
+    font-size: 1.5em;
+    font-weight: 700;
+    border-radius: 0.5em;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+button:disabled {
+    color: #ededed;
+}
+
+.tips {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 25em;
+    height: 30em;
+    background-color: #776e65;
+    border-radius: 0.5em;
+    display: none;
+}
+
+.tips button {
+     position: absolute;
+     bottom: 2em;
+     left: 50%;
+     transform: translate(-50%, 0);
+}
+
+.tips h3 {
+    position: absolute;
+    top: 1em;
+    left: 50%;
+    font-size: 3em;
+    transform: translate(-50%, 0);
+}
+
+.tips .point {
+     position: absolute;
+     top: 7em;
+     left: 50%;
+     width: 100%;
+     text-align: center;
+     transform: translate(-50%, 0);
+     font-size: 1.5em;
+}
+
+.tips p {
+    position: absolute;
+    top: 8em;
+    left: 50%;
+    font-size: 2em;
+    transform: translate(-50%, 0);
+}
+
+

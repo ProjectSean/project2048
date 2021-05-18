@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keyword" content="2048|小游戏|童年经典">
+    <title>2048 by Sean</title>
+    <link rel="stylesheet" href="./css/2048.css">
+</head>
+
+<body>
+    <div class="main_box">
+        <!-- 游戏进行时的头部，显示实时分数 -->
+        <div class="top">
+            <span>分数：</span> <span class="score">0</span>
+        </div>
+        <!-- 棋盘main，里面包含着方块cell动态生成 -->
+        <main>
+        </main>
+        <!-- 两个按钮，一个开始游戏，一个重新开始游戏 -->
+        <footer>
+            <button class="start">开始游戏</button>
+            <button class="restart" disabled='true'>重新开始</button>
+        </footer>
+    </div>
+    <!-- 游戏结束后的提示，显示分数和一个重新开始按钮 -->
+    <div class="tips">
+        <h3>游戏结束</h3>
+        <div class="point"><span>你的分数为：</span> <span class="score">0</span></div>
+        <p>再来一局吧！</p>
+        <button class="restart" disabled='true'>重新开始</button>
+    </div>
+    <script src="./js/cards.js"></script>
+    <script src="./js/utils.js"></script>
+    <script src="./js/Game.js"></script>
+    <script>
+        // import Game from './js/Game.js'
+        let game = new Game();
+    </script>
+</body>
+
+</html>
