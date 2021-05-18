@@ -14,6 +14,11 @@ class Game {
         this.restart = document.querySelectorAll('.restart')
         this.isslide = false;
         this.ismerge = false;
+        this.startX = 0
+        this.startY = 0
+        this.endX = 0
+        this.endY = 0
+        this.distance = 30
         this.init();
     }
     // 初始化
@@ -42,6 +47,31 @@ class Game {
                         break;
                 }
             }, that.tool.waitingTime))
+            document.addEventListener("touchstart", function (event) {
+                that.startX = event.touches[0].clientX;
+                that.startY = event.touches[0].clientY;
+            })
+            document.addEventListener("touchmove", function (event) {
+                event.preventDefault();
+                that.endX = event.changedTouches[0].clientX;
+                that.endY = event.changedTouches[0].clientY;
+            })
+            document.addEventListener("touchend", function (event) {
+                var x = that.endX - that.startX;
+                var y = that.endY - that.startY;
+                if (Math.abs(x) > Math.abs(y) && that.endX > that.startX && Math.abs(x) > that.distance) {
+                    that.moveRight()
+                }
+                if (Math.abs(x) > Math.abs(y) && that.endX < that.startX && Math.abs(x) > that.distance) {
+                    that.moveLeft()
+                }
+                if (Math.abs(x) < Math.abs(y) && that.endY < that.startY && Math.abs(y) > that.distance) {
+                    that.moveUp()
+                }
+                if (Math.abs(x) < Math.abs(y) && that.endY > that.startY && Math.abs(y) > that.distance) {
+                    that.moveDown()
+                }
+            })
         })
     }
     // 随机生成一个方块
