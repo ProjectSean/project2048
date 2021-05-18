@@ -60,15 +60,19 @@ class Game {
                 var x = that.endX - that.startX;
                 var y = that.endY - that.startY;
                 if (Math.abs(x) > Math.abs(y) && that.endX > that.startX && Math.abs(x) > that.distance) {
+                    event.stopPropagation()
                     that.moveRight()
                 }
                 if (Math.abs(x) > Math.abs(y) && that.endX < that.startX && Math.abs(x) > that.distance) {
+                    event.stopPropagation()
                     that.moveLeft()
                 }
                 if (Math.abs(x) < Math.abs(y) && that.endY < that.startY && Math.abs(y) > that.distance) {
+                    event.stopPropagation()
                     that.moveUp()
                 }
                 if (Math.abs(x) < Math.abs(y) && that.endY > that.startY && Math.abs(y) > that.distance) {
+                    event.stopPropagation()
                     that.moveDown()
                 }
             })
