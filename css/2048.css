@@ -123,6 +123,9 @@ button:disabled {
 }
 
 @media(max-width:500px) {
+    *{
+        touch-action: pan-y;
+    }
     .main_box {
         margin: auto;
         width: 80vw;
