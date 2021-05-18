@@ -58,26 +58,27 @@ class Game {
                 that.endX = event.changedTouches[0].clientX;
                 that.endY = event.changedTouches[0].clientY;
             })
-            that.main_box.addEventListener("touchend", function (event) {
+            that.main_box.addEventListener("touchend", that.tool.throttle(function (event) {
+                event.preventDefault();
                 var x = that.endX - that.startX;
                 var y = that.endY - that.startY;
                 if (Math.abs(x) > Math.abs(y) && that.endX > that.startX && Math.abs(x) > that.distance) {
-                    event.preventDefault();
                     that.moveRight()
                 }
                 if (Math.abs(x) > Math.abs(y) && that.endX < that.startX && Math.abs(x) > that.distance) {
-                    event.preventDefault();
                     that.moveLeft()
                 }
                 if (Math.abs(x) < Math.abs(y) && that.endY < that.startY && Math.abs(y) > that.distance) {
-                    event.preventDefault();
                     that.moveUp()
                 }
                 if (Math.abs(x) < Math.abs(y) && that.endY > that.startY && Math.abs(y) > that.distance) {
-                    event.preventDefault();
                     that.moveDown()
                 }
-            })
+                that.endX = 0;
+                that.endY = 0;
+                that.startX = 0;
+                that.startY = 0;
+            }, that.tool.waitingTime))
         })
     }
     // 随机生成一个方块

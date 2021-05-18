@@ -4,6 +4,16 @@
     box-sizing: border-box;
     user-select: none;
  }
+header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100vw;
+}
 
 .main_box {
     margin: 200px auto;
@@ -54,6 +64,8 @@
 footer {
     position: absolute;
     top: 60em;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 footer button {
@@ -164,6 +176,9 @@ button:disabled {
     footer {
         position: absolute;
         top: 70vh;
+        width: 100vw;
+        display: flex;
+        justify-content: center;
     }
     
     footer button {
